@@ -1,0 +1,27 @@
+h1 {
+    margin-bottom: 20px;
+
+}
+
+/* Stilizează input-urile */
+.textField {
+    margin: 5px;
+    /* Adaugă spațiu între input-uri */
+}
+
+
+#login {
+    margin-top: 5px;
+}
+
+.mapare {
+    padding-top: 40px;
+    position: relative;
+    top:100px;
+    height: 400px;
+    width: 400px;
+    background-color: #61876E;
+    color: #EAE7B1;
+    border-radius: 10%;
+    
+}

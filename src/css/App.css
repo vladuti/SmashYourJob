@@ -1,0 +1,54 @@
+.navbar {
+    background-color: #3C6255;
+  }
+  
+  .container-fluid,
+  .navbar-nav .nav-link {
+    color: #EAE7B1;
+  }
+  
+  .navbar-nav .nav-item .nav-link.active {
+    color:#EAE7B1;
+  }
+ 
+  .dreapta{
+    padding-right:40px;
+  }
+  .logs1{
+    position: absolute;
+    right: 20px;
+  }
+  .logs2{
+    position: absolute;
+    right: 80px;
+  }
+
+  .fundal{
+    width: 1520px;
+    height: 800px;
+
+  }
+
+  .banipespate{
+    background-image: url(../poze/bg2.png);
+    height: 1200px;
+    position: relative;
+   
+  }
+
+
+
+  .jos{
+    background: linear-gradient(to bottom, transparent,rgb(166, 187, 141,0.8), rgb(60, 98, 85,2)),
+    url('');
+    padding-bottom: 100px;
+    padding-top: 200px;
+    width: 100%;
+    position: absolute;
+    bottom: 0; 
+  }
+
+
+  .coloane{
+    padding-top: 20px;
+  }
