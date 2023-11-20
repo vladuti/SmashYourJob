@@ -1,19 +1,33 @@
 import { useState } from "react";
 import "../css/App.css";
 import "./Login";
+import Signin from "./Signin";
+import Jobs from "./Jobs";
+import legalImage from "../poze/protected.png";
+import careerImage from "../poze/career.png";
+import socialImage from "../poze/social.png";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Login";
 
 function App() {
   const [loginAux, setLoginAux] = useState(false);
+  const [signin, setSignin] = useState(false);
 
   const handleClick = () => {
     setLoginAux(true);
+    setSignin(false);
+  };
+
+  const handleSignIn = () => {
+    setLoginAux(false);
+    setSignin(true);
   };
 
   return (
     <>
-      <div>
-        <nav className="navbar navbar-expand-lg bg-body-tertiary navcss ">
+      <div className="navbarcss">
+        <nav className="navbar navbar-expand-lg  .navbar">
           <div className="container-fluid ">
             <a className="nav-link active " href="#">
               <h3 className="dreapta">SmashYourJ🥵b</h3>
@@ -48,12 +62,15 @@ function App() {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#" onClick={handleClick}>
-                    <h6 className="logs2"> Login</h6>
+                    <h6 className="logs2"> LogIn</h6>
                   </a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="#">
-                    <h6 className="logs1"> SignUp</h6>
+                    <h6 className="logs1" onClick={handleSignIn}>
+                      {" "}
+                      SignUp
+                    </h6>
                   </a>
                 </li>
               </ul>
@@ -61,10 +78,21 @@ function App() {
           </div>
         </nav>
       </div>
+
       <div className="banipespate">
         <div>
           <Login display={loginAux}></Login>
         </div>
+        <div className="padd100">
+          <Router>
+            <div>
+              <Routes>
+                <Route path="/Jobs" element={<Jobs />} />
+              </Routes>
+            </div>
+          </Router>
+        </div>
+
         <div className="jos">
           <center>
             <b>
@@ -80,23 +108,25 @@ function App() {
                   <h5>
                     <b>Legal</b>
                   </h5>
+                  <img className="legal" src={legalImage} alt="" />
                 </div>
                 <div className="col">
                   <h5>
                     <b>Careers</b>
                   </h5>
+                  <img className="legal" src={careerImage} alt="" />
                 </div>
                 <div className="col">
                   <h5>
                     <b>Social</b>
                   </h5>
+                  <img className="legal" src={socialImage} alt="" />
                 </div>
               </div>
             </div>
           </center>
         </div>
       </div>
-      <center></center>
     </>
   );
 }

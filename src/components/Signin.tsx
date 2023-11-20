@@ -1,9 +1,6 @@
-import "../css/Login.css";
 import React, { useState, ChangeEvent, FormEvent } from "react";
-import ReactDOM from "react-dom/client";
 import { useMutation, useQueries } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { useQuery } from "convex/react";
 
 interface Prop {
   display: boolean;
@@ -25,32 +22,22 @@ export const Login = ({ display }: Prop) => {
     setPassword(event.target.value);
   };
 
-  const userQuery = useQuery(api.users.getUser, {
-    User: username,
-    Password: password,
-  });
+  const userMutation = useMutation(api.users.addUser);
 
-  const handleLogIn = async (event: FormEvent<HTMLFormElement>) => {
+  const handleSignIn = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
-    // Așteaptă rezultatul query-ului
-    const result = await userQuery;
-
-    // Verifică rezultatul și afișează un mesaj în consolă sau gestionează în consecință
-    if (result && result.length > 0) {
-      console.log("Utilizatorul a fost găsit.");
-      // Poți face ceva în continuare, de exemplu, să redirecționezi utilizatorul sau să afișezi un mesaj în interfață
-    } else {
-      console.error("Utilizatorul NU a fost găsit.");
-      // Poți trata cazul în care perechea user-password nu a fost găsită
-    }
+    const result = await userMutation({
+      User: username,
+      Password: password,
+    });
+    console.log({ result });
   };
   if (display) {
     return (
       <center>
         <div className="mapare">
           <div className="coboara">
-            <form onSubmit={handleLogIn}>
+            <form onSubmit={handleSignIn}>
               <label>
                 <input
                   type="text"
@@ -60,15 +47,16 @@ export const Login = ({ display }: Prop) => {
                 />
                 <br />
                 <input
-                  type="password"
+                  type="text"
                   placeholder="Password"
                   value={password}
                   onChange={handlePasswordChange}
                 />
+                <br />
               </label>
               <br />
               <button type="submit" className="btn btn-danger">
-                Log In
+                Sign In
               </button>
             </form>
           </div>
