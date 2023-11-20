@@ -1,22 +1,30 @@
 import { useState } from "react";
 import "../css/App.css";
 import "./Login";
+import Login from "./Login";
 import Signin from "./Signin";
-import Jobs from "./Jobs";
 import legalImage from "../poze/protected.png";
 import careerImage from "../poze/career.png";
 import socialImage from "../poze/social.png";
-
+import "./Jobs";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Login from "./Login";
+import Jobs from "./Jobs";
+import Courses from "./Courses";
 
 function App() {
   const [loginAux, setLoginAux] = useState(false);
   const [signin, setSignin] = useState(false);
+  const [courses, setCourses] = useState(false);
 
   const handleClick = () => {
     setLoginAux(true);
     setSignin(false);
+  };
+
+  const afiseazaCourses = () => {
+    setLoginAux(false);
+    setSignin(false);
+    setCourses(true);
   };
 
   const handleSignIn = () => {
@@ -29,8 +37,8 @@ function App() {
       <div className="navbarcss">
         <nav className="navbar navbar-expand-lg  .navbar">
           <div className="container-fluid ">
-            <a className="nav-link active " href="#">
-              <h3 className="dreapta">SmashYourJ🥵b</h3>
+            <a className="nav-link active " href="/">
+              <h3 className="dreapta">SmashYourJob</h3>
             </a>
             <button
               className="navbar-toggler "
@@ -46,7 +54,7 @@ function App() {
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav">
                 <li className="nav-item ">
-                  <a className="nav-link  " aria-current="page" href="#">
+                  <a className="nav-link  " aria-current="page" href="Jobs">
                     <h5>Jobs</h5>
                   </a>
                 </li>
@@ -56,7 +64,7 @@ function App() {
                   </a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="#">
+                  <a className="nav-link" href="#" onClick={afiseazaCourses}>
                     <h5> Courses</h5>
                   </a>
                 </li>
@@ -68,7 +76,6 @@ function App() {
                 <li className="nav-item">
                   <a className="nav-link" href="#">
                     <h6 className="logs1" onClick={handleSignIn}>
-                      {" "}
                       SignUp
                     </h6>
                   </a>
@@ -78,11 +85,16 @@ function App() {
           </div>
         </nav>
       </div>
-
       <div className="banipespate">
         <div>
           <Login display={loginAux}></Login>
+          <Signin display={signin}></Signin>
         </div>
+
+        <div>
+          <Courses display={courses}></Courses>
+        </div>
+
         <div className="padd100">
           <Router>
             <div>

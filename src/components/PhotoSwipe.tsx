@@ -1,6 +1,5 @@
 import React from "react";
 import "../css/PhotoSwipe.css";
-import { read } from "fs";
 
 class PhotoSwipe extends React.Component {
   denumire = "";
@@ -54,30 +53,32 @@ class PhotoSwipe extends React.Component {
             SMASH
           </button>
         </div>
-        <table className="table latimetabel">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody className="table-group-divider">
-            <tr>
-              <th scope="row">1</th>
-              <td>{this.denumire}</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-          </tbody>
-        </table>
+        <div className="latimetabel">
+          <table className="table ">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Denumire</th>
+                <th scope="col">Bani</th>
+                <th scope="col">Studii</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider ">
+              <tr>
+                <th scope="row">1</th>
+                <td>{this.denumire}</td>
+                <td>ceva</td>
+                <td>@ceva</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>ceva</td>
+                <td>ceva</td>
+                <td>@ceva</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </center>
     );
   }
