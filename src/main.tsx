@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./components/App";
-import CV from "./components/CVGenerator";
-import "bootstrap/dist/css/bootstrap.css";
+import SmashOrPass from "./components/SmashOrPass";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 
 const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL as string);
